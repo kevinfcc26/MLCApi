@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MLCApi</name>
+    </assembly>
+    <members>
+        <member name="M:MLCApi.Controllers.VendedoresController.AddVendedor(MLCApi.Models.ApiModels.Vendedor)">
+            <summary>
+            Agrega un nuevo Vendedor
+            </summary>
+            <param name="vendedores"></param>
+            <returns>Vendedor</returns>
+        </member>
+    </members>
+</doc>
