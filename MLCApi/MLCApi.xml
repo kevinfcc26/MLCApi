@@ -4,12 +4,117 @@
         <name>MLCApi</name>
     </assembly>
     <members>
+        <member name="M:MLCApi.Controllers.MarcaController.Get(System.Int32)">
+            <summary>
+            Get Marca
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.MarcaController.AddMarca(MLCApi.Models.Marca)">
+            <summary>
+            Agrega una Marca
+            </summary>
+            <param name="Marca"></param>
+            <returns>Vendedor</returns>
+        </member>
+        <member name="M:MLCApi.Controllers.MarcaController.UpdateMarca(MLCApi.Models.Marca)">
+            <summary>
+            Actualiza una Marca
+            </summary>
+            <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.MarcaController.DeleteMarca(System.Int32)">
+            <summary>
+            Borra una Marca
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VehiculosController.Get(System.Int32)">
+            <summary>
+            Get vehiculos
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VehiculosController.AddVehiculos(MLCApi.Models.Vehiculos)">
+            <summary>
+            Agrega un nuevo Vendedor
+            </summary>
+            <param name="vehiculos"></param>
+            <returns>Vendedor</returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VehiculosController.UpdateVehiculos(MLCApi.Models.Vehiculos)">
+            <summary>
+            Actualiza un Vehiculos
+            </summary>
+            <param name="vehiculos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VehiculosController.DeleteVehiculos(System.Int32)">
+            <summary>
+            Borra un Vehiculos
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VendedoresController.Get(System.Int32)">
+            <summary>
+            Get Vendedor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:MLCApi.Controllers.VendedoresController.AddVendedor(MLCApi.Models.ApiModels.Vendedor)">
             <summary>
             Agrega un nuevo Vendedor
             </summary>
             <param name="vendedores"></param>
             <returns>Vendedor</returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VendedoresController.UpdateVendedor(MLCApi.Models.ApiModels.Vendedor)">
+            <summary>
+            Actualiza un Vendedor
+            </summary>
+            <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VendedoresController.DeleteVendedor(System.Int32)">
+            <summary>
+            Borra un Vendedor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VentasController.Get(System.Int32)">
+            <summary>
+            Get Ventas
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VentasController.AddVentas(MLCApi.Models.Ventas)">
+            <summary>
+            Agrega un nuevo Vendedor
+            </summary>
+            <param name="ventas"></param>
+            <returns>Vendedor</returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VentasController.UpdateVentas(MLCApi.Models.Ventas)">
+            <summary>
+            Actualiza un Vendedor
+            </summary>
+            <param name="vendedor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MLCApi.Controllers.VentasController.DeleteVentas(System.Int32)">
+            <summary>
+            Borra un Vendedor
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

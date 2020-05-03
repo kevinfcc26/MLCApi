@@ -14,17 +14,17 @@ namespace MLCApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VendedoresController : ControllerBase
+    public class MarcaController : ControllerBase
     {
-        private readonly IVendedoresService _vendedoresService;
+        private readonly IMarcaService _marcaService;
 
-        public VendedoresController(IVendedoresService vendedoresService)
+        public MarcaController(IMarcaService marcaService)
         {
-            _vendedoresService = vendedoresService;
+            _marcaService = marcaService;
         }
         
         /// <summary>
-        /// Get Vendedor
+        /// Get Marca
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -32,65 +32,63 @@ namespace MLCApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var Vendedor = await _vendedoresService.GetVendedores(id);
+            var Marca = await _marcaService.GetMarca(id);
 
-            return Ok(Vendedor);
+            return Ok(Marca);
         } 
 
         [HttpGet]
-        [Produces("application/json", Type = typeof(List<Vendedor>))]
+        [Produces("application/json", Type = typeof(List<Marca>))]
         public async Task<IActionResult> GetAll()
         {
-            var Vendedor = await _vendedoresService.GetAllVendedores();
+            var Marca = await _marcaService.GetAllMarca();
 
-            return Ok(Vendedor);
+            return Ok(Marca);
         }
 
 
         /// <summary>
-        /// Agrega un nuevo Vendedor
+        /// Agrega una Marca
         /// </summary>
-        /// <param name="vendedores"></param>
+        /// <param name="Marca"></param>
         /// <returns>Vendedor</returns>
         [ProducesResponseType(200)] 
         [ProducesResponseType(500)] 
         [ProducesResponseType(401)] 
-        [Produces("application/json",Type=typeof(Vendedor))] 
+        [Produces("application/json",Type=typeof(Marca))] 
 
         // POST: api/Values
         [HttpPost]
-        public async Task<IActionResult> AddVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> AddMarca([FromBody]Marca marca)
         {
-            var name = await _vendedoresService.AddVendedor(VendedorMapper.Map(vendedor));
+            var name = await _marcaService.AddMarca(MarcaMapper.Map(marca));
 
             return Ok(name);
         }
 
         /// <summary>
-        /// Actualiza un Vendedor
+        /// Actualiza una Marca
         /// </summary>
         /// <param name="vendedor"></param>
         /// <returns></returns>
         // PUT: api/Values/5
         [HttpPut]
-        [Produces("application/json", Type = typeof(Vendedor))]
-        public async Task<IActionResult> UpdateVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> UpdateMarca([FromBody]Marca marca)
         {
-            var name = await _vendedoresService.UpdateVendedor(VendedorMapper.Map(vendedor));
+            var name = await _marcaService.UpdateMarca(MarcaMapper.Map(marca));
 
             return Ok(name);
         }
         /// <summary>
-        /// Borra un Vendedor
+        /// Borra una Marca
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        [Produces("application/json", Type = typeof(bool))]
-        public async Task<IActionResult> DeleteVendedor(int id)
+        public async Task<IActionResult> DeleteMarca(int id)
         {
-            await _vendedoresService.DeleteVendedor(id);
+           await _marcaService.DeleteMarca(id);
 
             return Ok();
         }

@@ -22,6 +22,8 @@ namespace MLCApi
         {
             services.AddTransient<IVendedoresService,VendedoresService>();
             services.AddTransient<IVehiculosService,VehiculosService>();
+            services.AddTransient<IMarcaService,MarcaService>();
+            services.AddTransient<IVentasService,VentasService>();
 
             return services;
         }

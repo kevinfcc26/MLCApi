@@ -14,17 +14,17 @@ namespace MLCApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VendedoresController : ControllerBase
+    public class VehiculosController : ControllerBase
     {
-        private readonly IVendedoresService _vendedoresService;
+        private readonly IVehiculosService _vehiculosService;
 
-        public VendedoresController(IVendedoresService vendedoresService)
+        public VehiculosController(IVehiculosService vehiculosService)
         {
-            _vendedoresService = vendedoresService;
+            _vehiculosService = vehiculosService;
         }
-        
+
         /// <summary>
-        /// Get Vendedor
+        /// Get vehiculos
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -32,65 +32,63 @@ namespace MLCApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var Vendedor = await _vendedoresService.GetVendedores(id);
+            var vehiculos = await _vehiculosService.GetVehiculos(id);
 
-            return Ok(Vendedor);
+            return Ok(vehiculos);
         } 
 
         [HttpGet]
-        [Produces("application/json", Type = typeof(List<Vendedor>))]
+        [Produces("application/json", Type = typeof(List<Vehiculos>))]
         public async Task<IActionResult> GetAll()
         {
-            var Vendedor = await _vendedoresService.GetAllVendedores();
+            var vehiculos = await _vehiculosService.GetAllVehiculos();
 
-            return Ok(Vendedor);
+            return Ok(vehiculos);
         }
 
 
         /// <summary>
         /// Agrega un nuevo Vendedor
         /// </summary>
-        /// <param name="vendedores"></param>
+        /// <param name="vehiculos"></param>
         /// <returns>Vendedor</returns>
         [ProducesResponseType(200)] 
         [ProducesResponseType(500)] 
         [ProducesResponseType(401)] 
-        [Produces("application/json",Type=typeof(Vendedor))] 
+        [Produces("application/json",Type=typeof(Vehiculos))] 
 
         // POST: api/Values
         [HttpPost]
-        public async Task<IActionResult> AddVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> AddVehiculos([FromBody]Vehiculos vehiculos)
         {
-            var name = await _vendedoresService.AddVendedor(VendedorMapper.Map(vendedor));
+            var name = await _vehiculosService.AddVehiculos(VehiculosMapper.Map(vehiculos));
 
             return Ok(name);
         }
 
         /// <summary>
-        /// Actualiza un Vendedor
+        /// Actualiza un Vehiculos
         /// </summary>
-        /// <param name="vendedor"></param>
+        /// <param name="vehiculos"></param>
         /// <returns></returns>
         // PUT: api/Values/5
         [HttpPut]
-        [Produces("application/json", Type = typeof(Vendedor))]
-        public async Task<IActionResult> UpdateVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> UpdateVehiculos([FromBody]Vehiculos vehiculos)
         {
-            var name = await _vendedoresService.UpdateVendedor(VendedorMapper.Map(vendedor));
+            var name = await _vehiculosService.UpdateVehiculos(VehiculosMapper.Map(vehiculos));
 
             return Ok(name);
         }
         /// <summary>
-        /// Borra un Vendedor
+        /// Borra un Vehiculos
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        [Produces("application/json", Type = typeof(bool))]
-        public async Task<IActionResult> DeleteVendedor(int id)
+        public async Task<IActionResult> DeleteVehiculos(int id)
         {
-            await _vendedoresService.DeleteVendedor(id);
+            await _vehiculosService.DeleteVehiculos(id);
 
             return Ok();
         }

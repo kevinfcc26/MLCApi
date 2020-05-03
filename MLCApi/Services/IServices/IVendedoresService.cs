@@ -1,4 +1,5 @@
 ﻿using MLCApi.Models;
+using MLCApi.Models.ApiModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,11 @@ namespace MLCApi.Services
 {
     public interface IVendedoresService 
     { 
-        Task<string> GetVendedoresName(int id);
-        Task<Vendedores> AddAdmin(Vendedores vendedores);
+        Task<IEnumerable<Vendedores>> GetAllVendedores();
+        Task<Vendedores> GetVendedores(int id);
+        Task<Vendedores> AddVendedor(Vendedores vendedores);
+        Task DeleteVendedor(int id);
+        Task<Vendedores> UpdateVendedor(Vendedores vendedores);
+
     }
 }

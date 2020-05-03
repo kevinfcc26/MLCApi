@@ -14,17 +14,17 @@ namespace MLCApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VendedoresController : ControllerBase
+    public class VentasController : ControllerBase
     {
-        private readonly IVendedoresService _vendedoresService;
+        private readonly IVentasService _ventasService;
 
-        public VendedoresController(IVendedoresService vendedoresService)
+        public VentasController(IVentasService ventasService)
         {
-            _vendedoresService = vendedoresService;
+            _ventasService = ventasService;
         }
         
         /// <summary>
-        /// Get Vendedor
+        /// Get Ventas
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -32,36 +32,36 @@ namespace MLCApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)
         {
-            var Vendedor = await _vendedoresService.GetVendedores(id);
+            var Ventas = await _ventasService.GetVentas(id);
 
-            return Ok(Vendedor);
+            return Ok(Ventas);
         } 
 
         [HttpGet]
-        [Produces("application/json", Type = typeof(List<Vendedor>))]
+        [Produces("application/json", Type = typeof(List<Ventas>))]
         public async Task<IActionResult> GetAll()
         {
-            var Vendedor = await _vendedoresService.GetAllVendedores();
+            var Ventas = await _ventasService.GetAllVentas();
 
-            return Ok(Vendedor);
+            return Ok(Ventas);
         }
 
 
         /// <summary>
         /// Agrega un nuevo Vendedor
         /// </summary>
-        /// <param name="vendedores"></param>
+        /// <param name="ventas"></param>
         /// <returns>Vendedor</returns>
         [ProducesResponseType(200)] 
         [ProducesResponseType(500)] 
         [ProducesResponseType(401)] 
-        [Produces("application/json",Type=typeof(Vendedor))] 
+        [Produces("application/json",Type=typeof(Ventas))] 
 
         // POST: api/Values
         [HttpPost]
-        public async Task<IActionResult> AddVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> AddVentas([FromBody]Ventas ventas)
         {
-            var name = await _vendedoresService.AddVendedor(VendedorMapper.Map(vendedor));
+            var name = await _ventasService.AddVentas(VentasMapper.Map(ventas));
 
             return Ok(name);
         }
@@ -73,10 +73,9 @@ namespace MLCApi.Controllers
         /// <returns></returns>
         // PUT: api/Values/5
         [HttpPut]
-        [Produces("application/json", Type = typeof(Vendedor))]
-        public async Task<IActionResult> UpdateVendedor([FromBody]Vendedor vendedor)
+        public async Task<IActionResult> UpdateVentas([FromBody]Ventas ventas)
         {
-            var name = await _vendedoresService.UpdateVendedor(VendedorMapper.Map(vendedor));
+            var name = await _ventasService.UpdateVentas(VentasMapper.Map(ventas));
 
             return Ok(name);
         }
@@ -87,10 +86,9 @@ namespace MLCApi.Controllers
         /// <returns></returns>
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        [Produces("application/json", Type = typeof(bool))]
-        public async Task<IActionResult> DeleteVendedor(int id)
+        public async Task<IActionResult> DeleteVentas(int id)
         {
-            await _vendedoresService.DeleteVendedor(id);
+            await _ventasService.DeleteVentas(id);
 
             return Ok();
         }

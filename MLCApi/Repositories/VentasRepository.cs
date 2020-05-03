@@ -69,9 +69,9 @@ namespace MLCApi.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Ventas>> GetAll()
+        public async Task<IEnumerable<Ventas>> GetAll()
         {
-            throw new NotImplementedException();
+            return _concesionarioContext.Ventas.Select(x => x);
         }
     }
 }
